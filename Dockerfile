@@ -7,4 +7,4 @@ COPY apollo /app/apollo
 RUN conda env create -f environment.yml python=3.5
 ENV PATH /opt/conda/envs/apollo/bin:$PATH
 RUN pip install -r requirements.txt
-CMD voila —-port=$PORT —-no-browser apollo.ipynb
+#CMD voila —-port=$PORT —-no-browser apollo.ipynb
