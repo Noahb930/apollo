@@ -1,0 +1,22 @@
+appnope
+ase
+click
+decorator
+h5py
+isodate
+joblib
+llvmlite
+networkx
+numba
+python-louvain
+rdflib
+scikit-learn
+scipy
+threadpoolctl
+tqdm
+xlsxwriter
+torch-scatter -f https://pytorch-geometric.com/whl/torch-1.8.0+cu102.html
+torch-sparse -f https://pytorch-geometric.com/whl/torch-1.8.0+cu102.html
+torch-cluster  -f https://pytorch-geometric.com/whl/torch-1.8.0+cu102.html
+torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.8.0+cu102.html
+torch-geometric

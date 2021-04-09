@@ -1,0 +1,11 @@
+{"learning_rate":0.01,
+"weight_decay":1e-05,
+"ndcg_cutoff":10,
+"minibatch_size":10,
+"num_blocks":4,
+"num_channels":64,
+"pooling_type":"SAG",
+"pooling_ratio":0.5,
+"validation_split":0.2,
+"testing_split":0.2,
+"dropout":0.25}

@@ -1,0 +1,83 @@
+Name,SMILES,Score,dataset
+Oldagen,C1CN(CCN(C1)CCO)CCCN2C3=CC=CC=C3SC4=C2C=C(C=C4)C(F)(F)F.Cl.Cl,6.315,testing
+Ndr 3680a,CCN(CCCN1C2=CC=CC=C2SC3=C1C=C(C=C3)C(F)(F)F)N4CCOCC4.Cl.Cl,6.129,training
+TC84-125,CN1CCCCC1CCN2C3=CC=CC=C3SC4=CC=CC=C42.C(=O)(C(F)(F)F)O,5.863,validation
+Oxyridazine,CN1CCCCC1CCN2C3=CC=CC=C3SC4=C2C=C(C=C4)OC,5.725,training
+Trans-Clopenthixol hydrochloride,C1CN(CCN1CC/C=C/2\C3=CC=CC=C3SC4=C2C=C(C=C4)Cl)CCO.Cl.Cl,5.708,validation
+Neuriplege,CCN(CC)CCCN1C2=CC=CC=C2SC3=C1C=C(C=C3)Cl.Cl,5.677,training
+Etymemazine Hydrochloride,CCC1=CC2=C(C=C1)SC3=CC=CC=C3N2CC(C)CN(C)C.Cl,5.625,training
+"Phenothiazine, di-hydrochloride",CC(CN1CCN(CC1)C)CN2C3=CC=CC=C3SC4=C2C=C(C=C4)C(F)(F)F.Cl,5.512,training
+HC75-91,CN1CCCCC1CCN2C3=CC=CC=C3SC4=C2C=C(C=C4)OC.C(=O)(C(F)(F)F)O,5.497,testing
+TC84-144,CN1CCCCC1CCN2c3ccccc3Sc4cc(ccc24)C(F)(F)F.CC(=O)C(F)(F)F,5.466,testing
+Dichlorpromazine,CN(C)CCCN1C2=CC=CC=C2SC3=C1C=C(C=C3Cl)Cl,5.408,training
+TC84-7,CN(C)CCCN1c2ccccc2Sc3ccc(Cl)cc13.CC(=O)C(F)(F)F,5.406,training
+Thiomethylpromazine,CN(C)CCCN1C2=CC=CC=C2SC3=C1C=C(C=C3)SC,5.361,testing
+Thiethylperazine maleate,CCSC1=CC2=C(SC3=CC=CC=C3N2CCCN4CCN(CC4)C)C=C1.C(=C\C(=O)O)\C(=O)O.C(=C\C(=O)O)\C(=O)O,5.303,training
+TC96-20,C12SC3=C(C=C(C(F)(F)F)C=C3)N(CCC3CCCCN3C)C1=CC(C)=CC=2.C(=O)(C)C(F)(F)F,5.033,testing
+Oxaflumazine Succinate,C1COC(OC1)CCN2CCN(CC2)CCCN3C4=CC=CC=C4SC5=C3C=C(C=C5)C(F)(F)F.C(CC(=O)O)C(=O)O,5.008,testing
+Thioridazine Chloride,CN1CCCCC1CCN2C3=CC=CC=C3SC4=C2C=C(C=C4)SC.Cl,4.95,validation
+Methiomeprazine Hydrochloride,CC(CN1C2=CC=CC=C2SC3=C1C=C(C=C3)SC)CN(C)C.Cl,4.943,validation
+TC84-8,CN(C)CCCN1c2ccccc2Sc3ccc(cc13)C(F)(F)F.CC(=O)C(F)(F)F,4.666,training
+Trimeprazine Maleate,CC(CN1C2=CC=CC=C2SC3=CC=CC=C31)CN(C)C.C(=C\C(=O)O)\C(=O)O,4.497,training
+TC84-124,CN(C)CCCN1c2ccccc2Sc3cc(C)c(C)cc13,4.327,testing
+TC84-110,CN1CCCCC1CCN2C3=CC=CC=C3SC4=C2C=C(C=C4)F,4.151,training
+Mopazine Maleate,CN(C)CCCN1C2=CC=CC=C2SC3=C1C=C(C=C3)OC.C(=C\C(=O)O)\C(=O)O,4.14,training
+Bristaline,CN1CCC(C1)CN2C3=CC=CC=C3SC4=CC=CC=C42.Cl,4.072,training
+Cyclophenazine Hydrochloride,C1CC1N2CCN(CC2)CCCN3C4=CC=CC=C4SC5=C3C=C(C=C5)C(F)(F)F.Cl.Cl,3.983,validation
+Prochlorperazine,CN1CCN(CC1)CCCN2C3=CC=CC=C3SC4=C2C=C(C=C4)Cl,3.972,training
+Phenothiazine,C1=CC=C2C(=C1)NC3=CC=CC=C3S2,3.897,validation
+Flupenthixol Dihydrochloride,C1CN(CCN1CC/C=C\2/C3=CC=CC=C3SC4=C2C=C(C=C4)C(F)(F)F)CCO.Cl.Cl,3.853,validation
+Mequitazine,C1CN2CCC1C(C2)CN3C4=CC=CC=C4SC5=CC=CC=C53,3.837,training
+Phenothiazine-2-chloro-10-(2-(dimethylamino) ethythio)acetyl-hydrochloride,CN(C)CCSCC(=O)N1C2=CC=CC=C2SC3=C1C=C(C=C3)Cl.Cl,3.829,testing
+4-(3-(2-Cyano-10-phenothiazinyl)propyl)-1-piperazineethanolbismethanesulfonate,S1C2=CC=CC=C2N(CCCN2CCN(CCO)CC2)C2=CC(C#C)=CC=C12.S(O)(C)(=O)=O,3.82,validation
+Ethopropazine Hydrochloride,CCN(CC)C(C)CN1C2=CC=CC=C2SC3=CC=CC=C31.Cl,3.784,training
+Sedalin,CC(=O)C1=CC2=C(C=C1)SC3=CC=CC=C3N2CCCN(C)C.C(=C/C(=O)O)\C(=O)O,3.766,training
+Triflupromazine Hydrochloride,CN(C)CCCN1C2=CC=CC=C2SC3=C1C=C(C=C3)C(F)(F)F.Cl,3.705,validation
+Chlorpromazine,CN(C)CCCN1C2=CC=CC=C2SC3=C1C=C(C=C3)Cl,3.617,training
+Trifluoperazine Hydrochloride,CN1CCN(CC1)CCCN2C3=CC=CC=C3SC4=C2C=C(C=C4)C(F)(F)F.Cl.Cl,3.58,validation
+Prolixin,C1CN(CCN1CCCN2C3=CC=CC=C3SC4=C2C=C(C=C4)C(F)(F)F)CCO.Cl.Cl,3.563,training
+Pecazine,CN1CCCC(C1)CN2C3=CC=CC=C3SC4=CC=CC=C42,3.342,training
+Amitriptyline Chloride,CN(C)CCC=C1C2=CC=CC=C2CCC3=CC=CC=C31.Cl,3.132,training
+Promazine Hydrochloride,CN(C)CCCN1C2=CC=CC=C2SC3=CC=CC=C31.Cl,3.121,testing
+2-Azido-10-[4-(4-methylpiperazin-1-yl) butyl] phenothiazine,CN1CCN(CC1)CCCCN2C3=CC=CC=C3SC4=C2C=C(C=C4)N=[N+]=[N-],3.085,validation
+Flupenthixol,C1CN(CCN1CC/C=C\2/C3=CC=CC=C3SC4=C2C=C(C=C4)C(F)(F)F)CCO,3.038,training
+Chlorprothixene,CN(C)CC/C=C\1/C2=CC=CC=C2SC3=C1C=C(C=C3)Cl,3.016,training
+Thioproperazine dimesylate,CN1CCN(CC1)CCCN2C3=CC=CC=C3SC4=C2C=C(C=C4)S(=O)(=O)N(C)C.CS(=O)(=O)O.CS(=O)(=O)O,2.928,training
+10-Methylphenothiazine,CN1C2=CC=CC=C2SC3=CC=CC=C31,2.87,training
+Perphenazine,C1CN(CCN1CCCN2C3=CC=CC=C3SC4=C2C=C(C=C4)Cl)CCO,2.79,training
+TC84-6,CN(C)CCCN1c2ccccc2Sc3ccc(cc13)C(C)=O.CC(=O)C(F)(F)F,2.739,training
+TC84-21,CN(C)CCSCC(=O)N1c2ccccc2Sc3ccc(Cl)cc13.CC(=O)C(F)(F)F,2.607,training
+Phenothiazine-10-acetyl-5-oxide,CC(=O)N1C2=CC=CC=C2S(=O)C3=CC=CC=C31,2.607,testing
+Phenothiazine-10-propionic Acid,C1=CC=C2C(=C1)N(C3=CC=CC=C3S2)CCC(=O)O,2.563,training
+Fluphenazine Decanoate,CCCCCCCCCC(=O)OCCN1CCN(CC1)CCCN2C3=CC=CC=C3SC4=C2C=C(C=C4)C(F)(F)F,2.549,validation
+Phenothiazine-5-oxide,C1=CC=C2C(=C1)NC3=CC=CC=C3S2=O,2.539,training
+10-Ethylphenothiazine,CCN1C2=CC=CC=C2SC3=CC=CC=C31,2.217,training
+TC96-32,COc1ccc2Sc3ccccc3N(CCC4CCCCN4C(C)=O)c2c1.CC(=O)C(F)(F)F,2.102,training
+Phenothiazine-2-Sulfonamide,CN1CCN(CC1)CCCN2C3=CC=CC=C3SC4=C2C=C(C=C4)S(=O)(=O)N(C)C,2.094,training
+Propionylpromazine,CCC(=O)C1=CC2=C(C=C1)SC3=CC=CC=C3N2CCCN(C)C,2.049,testing
+Thiothixene,CN1CCN(CC1)CC/C=C\2/C3=CC=CC=C3SC4=C2C=C(C=C4)S(=O)(=O)N(C)C,1.946,training
+7-Hydroxychlorpromazine,CN(C)CCCN1C2=C(C=C(C=C2)O)SC3=C1C=C(C=C3)Cl,1.875,validation
+2-Methoxyphenothiazine,COC1=CC2=C(C=C1)SC3=CC=CC=C3N2,1.569,validation
+10-Acetylphenothiazine,CC(=O)N1C2=CC=CC=C2SC3=CC=CC=C31,1.549,training
+Mesoridazine,CN1CCCCC1CCN2C3=CC=CC=C3SC4=C2C=C(C=C4)S(=O)C,1.505,testing
+Phenothiazine-3-carbonitrile,C1=CC=C2C(=C1)NC3=C(S2)C=C(C=C3)C#N,1.476,training
+Phenothiazine-10-carbodithioic Acid,C1=CC=C2C(=C1)N(C3=CC=CC=C3S2)C(=S)S,1.469,testing
+Levopromazine,CC(CN1C2=CC=CC=C2SC3=C1C=C(C=C3)OC)CN(C)C,1.438,training
+Phenothiazine-10-propionitrile,C1=CC=C2C(=C1)N(C3=CC=CC=C3S2)CCC#N,1.384,training
+Novazin,CCN(CC)CCOC(=O)N1C2=CC=CC=C2SC3=CC=CC=C31.Cl,1.314,testing
+Promethazine Hydrochloride,CC(CN1C2=CC=CC=C2SC3=CC=CC=C31)N(C)C.Cl,1.274,testing
+Methylene Blue Leucobenzoyl,CN(C)C1=CC2=C(C=C1)N(C3=C(S2)C=C(C=C3)N(C)C)C(=O)C4=CC=CC=C4,1.222,training
+Nortriptyline Hydrochloride,CNCCC=C1C2=CC=CC=C2CCC3=CC=CC=C31.Cl,1.218,training
+"N-Acetylphenothiazine S,S-dioxide",CC(=O)N1C2=CC=CC=C2S(=O)(=O)C3=CC=CC=C31,1.113,validation
+TC84-161,CN(CCCN1c2ccccc2Sc3ccc(cc13)C(C)=O)C(C)=O.CC(=O)C(F)(F)F,1.073,training
+Emodin,CC1=CC2=C(C(=C1)O)C(=O)C3=C(C2=O)C=C(C=C3O)O,1.062,validation
+TC84-37,COc1ccc2c(c1)N(C(C)=O)c3ccccc3[S]2=O,0.951,testing
+TC84-32,CC(=O)N1C2=CC=CC=C2SC3=C1C=C(C=C3)C(F)(F)F,0.926,training
+TC84-50,CC(=O)N1C2=CC=CC=C2S(=O)C3=CC=CC=C31,0.915,training
+TC84-39,CC(=O)N1c2ccccc2[S](=O)c3ccc(Cl)cc13,0.912,training
+Promethazine Methiodide,CC(CN1C2=CC=CC=C2SC3=CC=CC=C31)[N+](C)(C)C.[I-],0.839,training
+TC84-31,COc1ccc2Sc3ccccc3N(C(C)=O)c2c1,0.772,training
+TC84-162,CC(=O)N(C)CCCN1C2=CC=CC=C2SC3=C1C=C(C=C3)C(F)(F)F,0.542,training
+TC84-13,CC(=O)C1=CC2=C(C=C1)SC3=CC=CC=C3N2C(=O)C,0.464,training
+TC84-20,CC(=O)N1c2ccccc2[S](=O)c3ccc(cc13)C(F)(F)F,0.459,training
+TC84-163,COc1ccc2Sc3ccccc3N(CCCN(C)C(C)=O)c2c1,0.002,training
