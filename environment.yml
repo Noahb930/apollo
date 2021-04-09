@@ -1,3 +1,4 @@
+name: apollo
 channels:
   - pytorch
   - conda-forge
