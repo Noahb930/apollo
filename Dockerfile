@@ -6,5 +6,5 @@ COPY apollo.ipynb /app/apollo.ipynb
 COPY apollo /app/apollo
 RUN conda env create -f environment.yml
 RUN pip install -r requirements.txt
-# RUN echo "source activate apollo" > ~/.bashrc
 ENV PATH /opt/conda/envs/apollo/bin:$PATH
+CMD voila —-port=$PORT —-no-browser apollo.ipynb
