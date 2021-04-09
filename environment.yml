@@ -28,7 +28,6 @@ dependencies:
   - entrypoints
   - fontconfig
   - freetype
-  - gcc
   - gettext
   - greenlet
   - icu
