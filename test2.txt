@@ -1,5 +1,0 @@
-- https://pytorch-geometric.com/whl/torch-1.8.0+cpu/torch_scatter-2.0.6-cp38-cp38-linux_x86_64.whl
-      - https://pytorch-geometric.com/whl/torch-1.8.0+cpu/torch_sparse-0.6.9-cp38-cp38m-linux_x86_64.whl
-      - https://pytorch-geometric.com/whl/torch-1.8.0+cpu/torch_cluster-1.5.9-cp38-cp38-linux_x86_64.whl
-      - https://pytorch-geometric.com/whl/torch-1.8.0+cpu/torch_spline_conv-1.2.1-cp38-cp38-linux_x86_64.whl
-   

@@ -1,0 +1,5 @@
+torch-cluster
+torch-scatter
+torch-sparse
+torch-spline-conv
+torch-geometric
