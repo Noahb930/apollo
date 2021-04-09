@@ -87,7 +87,7 @@ dependencies:
   - numpy
   - olefile
   - openssl
-  - packagin
+  - packaging
   - pandas
   - pandoc
   - pandocfilters
