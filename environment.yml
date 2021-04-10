@@ -28,8 +28,11 @@ dependencies:
   - entrypoints
   - fontconfig
   - freetype
+  - gcc_linux-64
   - gettext
+  - gfortran_linux-64
   - greenlet
+  - gxx_linux-64
   - icu
   - idna
   - importlib-metadata
