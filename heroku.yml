@@ -1,5 +1,0 @@
-build:
-  docker:
-    web: Dockerfile
-run:
-  web: voila --port=$PORT --no-browser apollo.ipynb

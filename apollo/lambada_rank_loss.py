@@ -25,6 +25,4 @@ class LambadaRankLoss(nn.Module):
                     swapped[j] = outputi
                     delta_ndcgs[i][j] = torch.abs(self.calculate_ndcg(outputs.view(-1),scores.view(-1)) - self.calculate_ndcg(swapped.view(-1),scores.view(-1)))
         loss = torch.sum(self.bce(logits, labels)*delta_ndcgs)/scores.shape[0]
-        
         return loss
-

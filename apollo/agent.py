@@ -14,7 +14,7 @@ import pandas as pd
 import xlsxwriter
 from rdkit import Chem
 from rdkit.Chem import Draw
-from json import load
+from json import load, dump
 from io import BytesIO, StringIO
 from PIL import Image
 import base64
@@ -26,19 +26,33 @@ from screened_compounds import ScreenedCompounds
 from unscreened_compounds import UnscreenedCompounds
 
 class Agent():
-    def __init__(self):
-        pass
+    def __init__(self,name):
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        self.path = name
+        self.config = load(open(os.path.join(self.path,'config.json'),'r'))
+        self.training_data = ScreenedCompounds(os.path.join(self.path,'data'),self.config["validation_split"],self.config["testing_split"],'training')
+        self.validation_data = ScreenedCompounds(os.path.join(self.path,'data'),self.config["validation_split"],self.config["testing_split"],'validation')
+        self.testing_data = ScreenedCompounds(os.path.join(self.path,'data'),self.config["validation_split"],self.config["testing_split"],'testing')
+        self.vocab = pickle.load(open(os.path.join(self.path,'data/vocab.txt'),'rb'))
+        self.model = HierarchicalPoolingNetwork(self.config['num_blocks'],len(self.vocab),self.config['num_channels'],'SAG',self.config['pooling_ratio'],self.config['dropout']).to(self.device)
+        self.loss_func = LambadaRankLoss(self.config['ndcg_cutoff']).to(self.device)
+        self.optimizer = optim.Adam(self.model.parameters(), lr=self.config['learning_rate'],weight_decay=self.config['weight_decay'])
+        self.ndcg_cutoff = self.config['ndcg_cutoff']
+        self.minibatch_size = self.config['minibatch_size']
+        self.history = pd.DataFrame({'training_loss':[],'training_auc':[],'training_ndcg':[],'validation_loss':[],'validation_auc':[],'validation_ndcg':[]})
+        if os.path.exists(os.path.join(self.path,'checkpoint.pt')):
+            self.load()
     def train(self,patience):
         training_data_loader = DataLoader(self.training_data,batch_size = self.minibatch_size,shuffle=True)
         validation_batch = Batch.from_data_list(self.validation_data).to(self.device)
         record = float('inf')
         epochs_without_record = 0
+        print("Starting Training")
         while True:
             validation_ranking, validation_loss, validation_auc, validation_ndcg = self.evaluate_one_epoch(validation_batch)
             if validation_loss < record:
                 record=validation_loss
                 epochs_without_record = 0
-                print("saved",flush=True)
                 self.save()
             else:
                 epochs_without_record +=1
@@ -56,9 +70,8 @@ class Agent():
             training_auc = running_training_auc / len(training_data_loader)
             training_ndcg = running_training_ndcg / len(training_data_loader)
             entry = pd.DataFrame({'training_loss':[training_loss.item()],'training_auc':[training_auc.item()],'training_ndcg':[training_ndcg.item()],'validation_loss':[validation_loss.item()],'validation_auc':[validation_auc.item()],'validation_ndcg':[validation_ndcg.item()]})
-            print({'training_loss':[training_loss.item()],'training_auc':[training_auc.item()],'training_ndcg':[training_ndcg.item()],'validation_loss':[validation_loss.item()],'validation_auc':[validation_auc.item()],'validation_ndcg':[validation_ndcg.item()]},flush=True)
             self.history = self.history.append(entry)
-        print("finished",flush=True)
+        print("Finished")
         self.load(self.experiment)
         self.evaluate()
     def evaluate(self):
@@ -122,7 +135,7 @@ class Agent():
                 bytes = BytesIO()
                 Draw.MolToImage(mol,size=(200,200)).save(bytes, format="JPEG")
                 df.loc[i,'Image'] = f"<img src='data:image/png;base64, {base64.b64encode(bytes.getvalue()).decode('utf-8')}' width='200px' height='200px'></img>"
-            return HTML(df.to_html(escape=False))
+            return df
     def calculate_ndcg(self, outputs, scores):
         dcg = torch.sum((torch.pow(2.0,scores[torch.argsort(outputs,descending=True)[:self.ndcg_cutoff]]) - 1.0) / torch.log2(torch.arange(2,self.ndcg_cutoff+2,dtype=torch.float)).to(scores.device))
         idcg = torch.sum((torch.pow(2.0,torch.sort(scores,descending=True)[0][:self.ndcg_cutoff]) - 1.0) / torch.log2(torch.arange(2,self.ndcg_cutoff+2,dtype=torch.float)).to(scores.device))
@@ -140,20 +153,7 @@ class Agent():
         torch.save({'model_state_dict':self.model.state_dict(),
             'optimizer_state_dict':self.optimizer.state_dict()},
             os.path.join(self.path,'checkpoint.pt'))
-    def load(self,path):
-        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-        self.path = path
-        self.config = load(open(os.path.join(self.path,'config.json'),'r'))
-        self.training_data = ScreenedCompounds(os.path.join(self.path,'data'),self.config["validation_split"],self.config["testing_split"],'training')
-        self.validation_data = ScreenedCompounds(os.path.join(self.path,'data'),self.config["validation_split"],self.config["testing_split"],'validation')
-        self.testing_data = ScreenedCompounds(os.path.join(self.path,'data'),self.config["validation_split"],self.config["testing_split"],'testing')
-        self.vocab = pickle.load(open(os.path.join(self.path,'data/vocab.txt'),'rb'))
-        self.model = HierarchicalPoolingNetwork(self.config['num_blocks'],len(self.vocab),self.config['num_channels'],'SAG',self.config['pooling_ratio'],self.config['dropout']).to(self.device)
-        self.loss_func = LambadaRankLoss(self.config['ndcg_cutoff']).to(self.device)
-        self.optimizer = optim.Adam(self.model.parameters(), lr=self.config['learning_rate'],weight_decay=self.config['weight_decay'])
-        self.ndcg_cutoff = self.config['ndcg_cutoff']
-        self.minibatch_size = self.config['minibatch_size']
-        self.history = pd.DataFrame({'training_loss':[],'training_auc':[],'training_ndcg':[],'validation_loss':[],'validation_auc':[],'validation_ndcg':[]})
+    def load(self):
         checkpoint = torch.load(os.path.join(self.path,'checkpoint.pt'),map_location='cpu')
         self.model.load_state_dict(checkpoint['model_state_dict'])
         self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
@@ -174,13 +174,14 @@ class Agent():
         ndcg_cutoff = ax.axvline(x=9.5,c='black',ls='dotted')
         ax.legend([training_scatter,validation_scatter,testing_scatter,dmso_score,ndcg_cutoff],['Training Data','Validation Data','Testing Data','DMSO Score','NDCG@k Cutoff'])
         plt.show()
-    def create(self,experiment_path,data_path,config):
-        if not os.path.exists(experiment_path):
-            os.mkdir(experiment_path)
-            with open(os.path.join(experiment_path,'config.json'),'w') as write_file:
-                dump(config,write_file)
-            os.makedirs(os.path.join(experiment_path,'data/raw'))
-            with open(os.path.join(data_path),'r') as read_file:
-                with open(os.path.join(experiment_path,'data/raw/screened_compounds.csv'),'w') as write_file:
-                    write_file.write(read_file.read())
-            return cls(experiment_path)
+    @classmethod
+    def create(cls,name,model_params,data):
+        if not os.path.exists(name):
+            os.mkdir(name)
+            with open(os.path.join(name,'config.json'),'w') as write_file:
+                dump(model_params,write_file)
+            print(os.path.join(name,'data/raw'))
+            os.makedirs(os.path.join(name,'data/raw'))
+            with open(os.path.join(name,'data/raw/screened_compounds.csv'),'wb') as write_file:
+                write_file.write(data)
+            return cls(name)
